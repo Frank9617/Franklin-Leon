@@ -55,6 +55,7 @@ export default function Navbar() {
     >
       <div className="max-w-7xl mx-auto px-3 md:px-6 py-3 md:py-4">
         <div className="flex items-center justify-between">
+          {/* Logo */}
           <motion.div
             className="text-xl font-bold bg-gradient-to-r from-blue-500 to-cyan-400 bg-clip-text text-transparent"
             whileHover={{ scale: 1.05 }}
@@ -62,6 +63,7 @@ export default function Navbar() {
             FL
           </motion.div>
 
+          {/* Navbar desktop */}
           <div className="hidden md:flex">
             <GooeyNav
               items={navItems}
@@ -76,10 +78,31 @@ export default function Navbar() {
             />
           </div>
 
-          
+          {/* Botón hamburguesa en móvil */}
+          <div className="md:hidden">
+            <button
+              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+              className="p-2 text-gray-300 hover:text-white focus:outline-none"
+            >
+              <svg
+                className="w-6 h-6"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M4 6h16M4 12h16M4 18h16"
+                />
+              </svg>
+            </button>
+          </div>
         </div>
       </div>
 
+      {/* Menú móvil desplegable */}
       <AnimatePresence>
         {mobileMenuOpen && (
           <motion.div
@@ -88,7 +111,26 @@ export default function Navbar() {
             exit={{ opacity: 0, height: 0 }}
             className="md:hidden bg-gray-900/95 backdrop-blur-lg border-t border-gray-800"
           >
-            
+            <ul className="flex flex-col p-4 space-y-4">
+              {navItems.map((item, index) => (
+                <li key={index}>
+                  <a
+                    href={item.href}
+                    onClick={(e) => {
+                      e.preventDefault();
+                      const section = document.querySelector(item.href);
+                      if (section) {
+                        section.scrollIntoView({ behavior: "smooth", block: "start" });
+                      }
+                      setMobileMenuOpen(false);
+                    }}
+                    className="block text-gray-300 hover:text-white"
+                  >
+                    {item.label}
+                  </a>
+                </li>
+              ))}
+            </ul>
           </motion.div>
         )}
       </AnimatePresence>
