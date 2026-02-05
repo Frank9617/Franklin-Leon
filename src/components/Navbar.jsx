@@ -63,8 +63,8 @@ export default function Navbar() {
             FL
           </motion.div>
 
-          {/* Navbar desktop */}
-          <div className="hidden md:flex">
+          {/* Navbar desktop con GooeyNav */}
+          <div className="hidden md:flex ">
             <GooeyNav
               items={navItems}
               particleCount={10}
@@ -83,6 +83,7 @@ export default function Navbar() {
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
               className="p-2 text-gray-300 hover:text-white focus:outline-none"
+              aria-label="Toggle menu"
             >
               <svg
                 className="w-6 h-6"
@@ -90,12 +91,21 @@ export default function Navbar() {
                 stroke="currentColor"
                 viewBox="0 0 24 24"
               >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M4 6h16M4 12h16M4 18h16"
-                />
+                {mobileMenuOpen ? (
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M6 18L18 6M6 6l12 12"
+                  />
+                ) : (
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M4 6h16M4 12h16M4 18h16"
+                  />
+                )}
               </svg>
             </button>
           </div>
@@ -111,26 +121,35 @@ export default function Navbar() {
             exit={{ opacity: 0, height: 0 }}
             className="md:hidden bg-gray-900/95 backdrop-blur-lg border-t border-gray-800"
           >
-            <ul className="flex flex-col p-4 space-y-4">
+            <div className="px-4 py-4 space-y-2">
               {navItems.map((item, index) => (
-                <li key={index}>
-                  <a
-                    href={item.href}
-                    onClick={(e) => {
-                      e.preventDefault();
-                      const section = document.querySelector(item.href);
-                      if (section) {
-                        section.scrollIntoView({ behavior: "smooth", block: "start" });
+                <motion.a
+                  key={index}
+                  href={item.href}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    setMobileMenuOpen(false);
+                    setTimeout(() => {
+                      const element = document.querySelector(item.href);
+                      if (element) {
+                        const navbarHeight = 80; // ajusta según tu navbar
+                        const offsetPosition = element.offsetTop - navbarHeight;
+                        window.scrollTo({ top: offsetPosition, behavior: 'smooth' });
                       }
-                      setMobileMenuOpen(false);
-                    }}
-                    className="block text-gray-300 hover:text-white"
-                  >
-                    {item.label}
-                  </a>
-                </li>
+                    }, 300);
+                  }}
+                  className={`block px-4 py-3 rounded-lg transition ${
+                    activeSection === index
+                      ? "bg-gradient-to-r from-blue-600 to-cyan-500 text-white"
+                      : "text-gray-300 hover:bg-gray-800"
+                  }`}
+                  whileTap={{ scale: 0.95 }}
+                >
+                  {item.label}
+                </motion.a>
               ))}
-            </ul>
+             
+            </div>
           </motion.div>
         )}
       </AnimatePresence>

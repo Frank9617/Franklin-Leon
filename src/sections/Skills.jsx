@@ -8,7 +8,7 @@ export default function Skills() {
   const [containerRef, isVisible] = useLazyLoad({ threshold: 0.1 });
 
   return (
-    <section id="skills" className="py-16 md:py-10 px-4 md:px-6 relative scroll-mt-28" ref={containerRef}>
+    <section id="skills" className=" py-16 md:py-2 px-4 md:px-6 relative scroll-mt-28" ref={containerRef}>
       <div className="max-w-7xl mx-auto">
         <motion.h2
           initial={isMobile ? {} : { opacity: 0, y: 20 }}
@@ -45,7 +45,7 @@ export default function Skills() {
 
 
         {/* Versión desktop: CircularGallery 3D */}
-        <div className="hidden md:block" style={{ height: '360px', position: 'relative', marginTop: '-20px' }}>
+        <div className="hidden md:block" style={{ height: '360px', position: 'relative', marginTop: '-90px' }}>
           {isVisible && (
             <CircularGallery
               items={skills}
@@ -64,7 +64,7 @@ export default function Skills() {
           whileInView={isMobile ? {} : { opacity: 1 }}
           viewport={{ once: true }}
           transition={isMobile ? {} : { delay: 0.8 }}
-          className="text-center text-gray-400 mt-4 md:mt-10 text-base md:text-lg px-4"
+          className="text-center text-gray-400 mt-4 md:mt-0 text-base md:text-lg px-4"
         >
           Siempre aprendiendo nuevas tecnologías y mejorando mis habilidades 🚀
         </motion.p>

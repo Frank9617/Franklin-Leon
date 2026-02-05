@@ -4,7 +4,7 @@ import Antigravity from "../components/Antigravity";
 
 export default function Hero() {
   return (
-    <section id="hero" className="relative min-h-screen flex items-center justify-center overflow-hidden pt-24 md:pt-28">
+    <section id="hero" className="scroll-mt-28 relative min-h-screen flex items-center justify-center overflow-hidden pt-12 md:pt-16">
       <div className="absolute inset-0 bg-black" />
       
       {typeof window !== 'undefined' && window.innerWidth >= 768 && (
@@ -29,7 +29,7 @@ export default function Hero() {
         </div>
       )}
 
-      <div className="relative z-10 grid md:grid-cols-2 gap-8 md:gap-12 items-center max-w-7xl mx-auto px-4 md:px-6 pt-32 md:pt-0" style={{ pointerEvents: 'none' }}>
+      <div className="relative z-10 grid md:grid-cols-2 gap-8 md:gap-12 items-center max-w-7xl mx-auto px-4 md:px-6 pt-8 md:pt-0" style={{ pointerEvents: 'none' }}>
         <motion.div
           initial={{ opacity: 0, x: -50 }}
           animate={{ opacity: 1, x: 0 }}

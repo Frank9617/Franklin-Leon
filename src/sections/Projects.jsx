@@ -15,13 +15,13 @@ export default function Projects() {
   };
 
   return (
-    <section id="projects" className="pt-20 md:pt-32 pb-8 px-4 md:px-6 overflow-hidden scroll-mt-28">
+    <section id="projects" className=" pt-8 md:pt-20 pb-8 px-4 md:px-6 overflow-hidden scroll-mt-24">
       <div className="max-w-7xl mx-auto">
         <motion.h2
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-3xl sm:text-4xl md:text-5xl font-bold mb-8 md:mb-20 text-center bg-gradient-to-r from-blue-500 to-cyan-400 bg-clip-text text-transparent relative z-10"
+          className="text-3xl sm:text-4xl md:text-5xl font-bold mb-6 md:mb-20 text-center bg-gradient-to-r from-blue-500 to-cyan-400 bg-clip-text text-transparent relative z-10"
         >
           Proyectos Destacados
         </motion.h2>
