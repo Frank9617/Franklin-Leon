@@ -24,7 +24,7 @@ export default function About() {
   };
 
   return (
-    <section id="about" className=" py-16 md:py-24 px-4 md:px-6 relative scroll-mt-6">
+    <section id="about" className=" min-h-screen py-20 md:py-24 px-4 md:px-6 relative scroll-mt-32">
       <div className="max-w-6xl mx-auto">
         <motion.h2
           initial={{ opacity: 0, y: 20 }}

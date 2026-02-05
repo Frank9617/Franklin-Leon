@@ -31,8 +31,8 @@ export default function Navbar() {
         });
       },
       {
-        threshold: 0.2,
-        rootMargin: '-80px 0px -40% 0px'
+        threshold: 0.05,
+        rootMargin: '-60px 0px -10% 0px'
       }
     );
 
