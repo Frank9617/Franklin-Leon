@@ -102,7 +102,7 @@ export default function Hero() {
           <div className="block md:hidden">
             <div className="relative w-64 h-80 rounded-2xl overflow-hidden border-4 border-cyan-400 shadow-2xl">
               <img 
-                src="/avatar.webp" 
+                src="/Frank.webp" 
                 alt="Franklin León"
                 className="w-full h-full object-cover"
               />
@@ -125,8 +125,8 @@ export default function Hero() {
               handle="F_leon90"
               // status="Disponible"
               
-              avatarUrl="/avatar.webp"
-              miniAvatarUrl="/avatar.webp"
+              avatarUrl="/Frank.webp"
+              miniAvatarUrl="/Frank.webp"
               
               
             />
