@@ -51,7 +51,7 @@ export default function About() {
               <div className="gradient-card-inner">
                 <div className="flex items-center gap-4 mb-6">
                   <div className="w-16 h-16 rounded-full overflow-hidden border-2 border-cyan-400">
-                    <img src="/avatar.webp" alt="Franklin León" className="w-full h-full object-cover" />
+                    <img src="/Frank.webp" alt="Franklin León" className="w-full h-full object-cover" />
                   </div>
                   <div>
                     {/* <h3 className="text-2xl font-bold text-white">Franklin León</h3> */}
