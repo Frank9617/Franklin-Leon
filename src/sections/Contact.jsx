@@ -32,7 +32,7 @@ export default function Contact() {
   ];
 
   return (
-    <section id="contact" className=" min-h-screen py-20 md:py-24 px-4 md:px-6 relative scroll-mt-32">
+    <section id="contact" className=" py-4 md:py-6 px-4 md:px-6 pb-12 md:pb-16 relative scroll-mt-16">
       <div className="max-w-6xl mx-auto">
         <motion.h2
           initial={isMobile ? {} : { opacity: 0, y: 20 }}
